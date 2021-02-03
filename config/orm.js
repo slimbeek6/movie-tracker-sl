@@ -28,14 +28,14 @@ function objToSql(ob) {
 
 var orm = {
     all: function(tableInput, cb) {
-        var queryString = "SELECT title, release_year FROM "+ tableInput + ";";
+        var queryString = "SELECT * FROM "+ tableInput + ";";
         connection.query(queryString, function(err, res) {
             if (err) throw err;
             cb(res);
         });
     },
     create: function(tableInput, cols, vals,  cb) {
-        var queryString = "INSERT INTO "+ tableInput +"(";
+        var queryString = "INSERT INTO "+ tableInput +" (";
         queryString += cols.toString();
         queryString += ") VALUES (";
         for (var i =0; i < vals.length-1; i++) {
@@ -43,16 +43,24 @@ var orm = {
         }
         queryString += "?) ";
 
-        connection.query(queryString, vals, function(err, results) {
+        connection.query(queryString, vals, function(err, result) {
             if (err) throw err;
             cb(result);
         });
     },
     update: function(tableInput, objColVals, condition, cb){
-        var queryString = "UPDATE "+ tableInput + "SET ";
+        var queryString = "UPDATE "+ tableInput + " SET ";
         queryString += objToSql(objColVals);
         queryString += " WHERE ";
         queryString += condition;
+
+        connection.query(queryString, function(err, result) {
+            if (err) throw err;
+            cb(result);
+        });
+    },
+    delete: function(tableInput, id, cb){
+        var queryString = "DELETE FROM "+ tableInput + " WHERE "+id;
 
         connection.query(queryString, function(err, result) {
             if (err) throw err;

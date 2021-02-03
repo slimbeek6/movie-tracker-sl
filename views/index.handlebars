@@ -19,7 +19,7 @@
             <ul>
             {{#each movies}}
                 {{#if watched}}
-                    {{> movie-block watched=true}}
+                    {{> watched-block watched=true}}
                 {{/if}}
             {{/each}}
             </ul>
@@ -44,7 +44,7 @@
     <input type="number" id="rely" name="rely">
   </div>
 
-  <button type="submit">Add Movie</button>
+  <button id="addNew" type="submit">Add Movie</button>
 </form>
 
 
