@@ -14,10 +14,6 @@ if (process.env.JAWSDB_URL) {
     database: "movies_DB"
   });
 }
- 
-
-// for Heroku
-connection = mysql.createConnection(process.env.JAWSDB_URL);
 
 // Make connection.
 connection.connect(function (err) {
