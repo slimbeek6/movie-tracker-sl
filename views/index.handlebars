@@ -16,7 +16,7 @@
 
         <section class = "col-6">
             <h2>Watched Movies</h2>
-            <ul>
+            <ul id="watchedList">
             {{#each movies}}
                 {{#if watched}}
                     {{> watched-block watched=true}}
@@ -35,12 +35,12 @@
   </div>
 
   <div class="form-group">
-    <label for="rat">Rating</label>
+    <label for="rat">Rating:</label>
     <input type="number" id="rat" name="rat">
   </div>
 
   <div class="form-group">
-    <label for="rely">Release Year</label>
+    <label for="rely">Release Year:</label>
     <input type="number" id="rely" name="rely">
   </div>
 

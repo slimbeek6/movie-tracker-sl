@@ -8,4 +8,28 @@ li {
     font-weight: bold;
 }
 
-  
+h1 {
+    text-align: center;
+}
+ 
+h2 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+.form-group {
+    margin-left: 40%;
+    text-align: left;
+}
+
+section {
+    border: 2px;
+    border-radius: 0%;
+}
+
+#watchedList {
+    padding-right: 5%;
+}
